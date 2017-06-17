@@ -21,6 +21,9 @@
         <br/>
         <i><%= comment.commeter %></i>
     </p>
+    <div>
+        <%= link_to "remove!", [comment.article, comment], method: :delete, data:{comfirm: "You sure?"} %>
+    </div>
 <% end %>
 </div>
 <div>

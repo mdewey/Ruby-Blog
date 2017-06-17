@@ -1,28 +1,4 @@
 <h1>New Articles</h1>
 <%= link_to "Nope Nope Nope", articles_path, class: 'btn btn-danger' %>
 
-
-<% if @article.errors.any? %>
-    <div>
-    <h2>Sorry, be better</h2>
-    <ul>
-        <% @article.errors.full_messages.each do |e| %>
-            <li><%= e%></li>
-        <% end %>
-    </ul> 
-    </div>
-<% end %>
-
-<%= form_for :article, url: articles_path  do |f| %>
-<p>
-    <%= f.label :title%><br/>
-    <%= f.text_field :title%>
-</p>
-
-<p>
-    <%= f.label :text%><br/>
-    <%= f.text_area :text%>
-</p>
-
-<%= f.submit%>
-<% end %>
+<% end %><%= render 'form' %>

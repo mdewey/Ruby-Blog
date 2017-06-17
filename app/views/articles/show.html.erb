@@ -1,9 +1,41 @@
 <p>
-<strong>Title:</strong>
-<%= @article.title %>
+    <strong>Title:</strong>
+    <%= @article.title %>
 </p>
 
 <p>
-<strong>text:</strong>
-<%= @article.text %>
+    <strong>text:</strong>
+    <%= @article.text %>
 </p>
+
+<div>
+    <%= link_to "I'm done", articles_path %>
+</div>
+
+<div>
+<% @article.comments.each do |comment|%>
+    <p>
+        <%= comment.body %>
+        <br/>
+        by:
+        <br/>
+        <i><%= comment.commeter %></i>
+    </p>
+<% end %>
+</div>
+<div>
+    <%= form_for([@article, @article.comments.build]) do |f| %>
+        <p>
+            <%= f.label :commeter %><br/>
+            <%= f.text_field :commeter %>
+        </p>
+          <p>
+            <%= f.label :body %><br>
+            <%= f.text_area :body %>
+        </p>
+        <p>
+            <%= f.submit %>
+        </p>
+    <% end %>
+</div>
+

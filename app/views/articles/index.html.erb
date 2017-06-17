@@ -5,8 +5,10 @@
 <% @articles.each do |article| %>
 <div>
    <div>
-    <h3><%= article.title %></h3>
+    <h3><%= link_to article.title, article_path(article) %></h3>
     <p><%= article.text %></p>
+    <p>Comments: <%= article.comments.count %></p>
+    <i><%= article.created_at %></i>
     <div>
         <%= link_to "Modify", edit_article_path(article) %>
     </div>
